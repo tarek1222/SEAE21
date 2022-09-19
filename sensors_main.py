@@ -1,5 +1,5 @@
 import sys
-
+# This is to check the commit section.
 # This is the main function for controlling the flow of the
 # implementation.
 def main():
