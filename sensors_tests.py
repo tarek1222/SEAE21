@@ -22,6 +22,19 @@ class TestSensors(unittest.TestCase):
 
     # Placeholder for the test case test_check_limits3. To be designed
     # and implemented. 
+    def test_check_limits2(self):
+        limits = [22, 18]
+        result = sensors_main.check_limits(limits)
+        self.assertFalse(result, False)
+        
+    # Placeholder for the test case test_check_limits3. To be designed
+    # and implemented. 
+
+    def test_check_limits3(self):
+        limits = [18, 18]
+        result = sensors_main.check_limits(limits)
+        self.assertFalse(result, False)
+
 
 if __name__ == '__main__':
     unittest.main()
