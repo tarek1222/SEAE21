@@ -38,6 +38,35 @@ class TestSensors(unittest.TestCase):
         result = sensors_main.check_limits(limits)
         self.assertFalse(result, False)
 
+    # The test case test_check_limitsrange1 that tests the check_limitsrange
+    # with correct inputs (lower limit 12 and higher limit 55)
+    #  and expects the method to return True, since the limits are correct.
+   
+    def test_check_limitsrange1(self):
+        limits = [12, 55]
+        result = sensors_main.check_limitsrange(limits)
+        self.assertTrue(result, True)
+
+    # The test case test_check_limitsrange2 that tests the check_limitsrange
+    # with incorrect lower limit (lower limit 1 and higher limit 55)
+    # expects the method to return False, since the  lower limit is
+    # incorrect.
+
+    def test_check_limitsrange2(self):
+        limits = [1, 55]
+        result = sensors_main.check_limitsrange(limits)
+        self.assertFalse(result, False)
+
+    # The test case test_check_limitsrange2 that tests the check_limitsrange
+    # with incorrect upper limit (lower limit 12 and higher limit 66)
+    # expects the method to return False, since the  upper limit is
+    # incorrect.
+    
+    def test_check_limitsrange3(self):
+        limits = [12, 66]
+        result = sensors_main.check_limitsrange(limits)
+        self.assertFalse(result, False)
+
 
 if __name__ == '__main__':
     unittest.main()
