@@ -18,17 +18,20 @@ class TestSensors(unittest.TestCase):
     # The test case test_check_limits2 that tests the check_limits
     # with incorrect inputs (lower limit 22 and higher limit 18) and
     # expects the method to return False, since the limits are
-    # incorrect. To be implemented.
+    # incorrect.
 
-    # Placeholder for the test case test_check_limits3. To be designed
-    # and implemented. 
+    
     def test_check_limits2(self):
         limits = [22, 18]
         result = sensors_main.check_limits(limits)
         self.assertFalse(result, False)
         
-    # Placeholder for the test case test_check_limits3. To be designed
-    # and implemented. 
+ 
+
+    # The test case test_check_limits3 that tests the check_limits
+    # with incorrect equal inputs (lower limit 18 and higher limit 18) and
+    # expects the method to return False, since the limits are
+    # incorrect. 
 
     def test_check_limits3(self):
         limits = [18, 18]
