@@ -49,11 +49,11 @@ def check_limits(limits):
 
 # This is the check_limitsrange function that gets an array containing the
 # limits as a parameter and checks that the lower limit and the higher limit
-# are within the range ( 5 >= limits <= 60 ). If this is the case, the function returns
+# are within the range ( -12 >= limits <= 60 ). If this is the case, the function returns
 # True. Otherwise, it returns False.
 
 def check_limitsrange(limits):
-    if limits[0] >= 5 and limits[1] <= 60:
+    if limits[0] >= -12 and limits[1] <= 60:
         return True
     else:
         return False
