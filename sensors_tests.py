@@ -1,102 +1,38 @@
 import sensors_main
 import unittest
-from unittest.mock import patch
-import sys
+from unittest.mock import patch 
+import sys 
 
-# Unit tests implemented with Python's built-in unittest
-# need to be classes, so here we use TestSensors class
-# for the tests.
+
 class TestSensors(unittest.TestCase):
-
-    # The test case test_check_limits1 that tests the check_limits
-    # with correct inputs (lower limit 18 and higher limit 22) and
-    # expects the method to return True, since the limits are
-    # correct.
+    
     def test_check_limits1(self):
-        limits = [18, 22]
+        limits = [-12, 55]
         result = sensors_main.check_limits(limits)
         self.assertTrue(result, True)
     
-    # The test case test_check_limits2 that tests the check_limits
-    # with incorrect inputs (lower limit 22 and higher limit 18) and
-    # expects the method to return False, since the limits are
-    # incorrect.
-
     
     def test_check_limits2(self):
-        limits = [22, 18]
-        result = sensors_main.check_limits(limits)
-        self.assertFalse(result, False)
-        
- 
-
-    # The test case test_check_limits3 that tests the check_limits
-    # with incorrect equal inputs (lower limit 18 and higher limit 18) and
-    # expects the method to return False, since the limits are
-    # incorrect. 
-
-    def test_check_limits3(self):
-        limits = [18, 18]
+        limits = [55, -12]
         result = sensors_main.check_limits(limits)
         self.assertFalse(result, False)
 
-    # The test case test_check_limitsrange1 that tests the check_limitsrange
-    # with correct inputs (lower limit -12 and higher limit 55)
-    #  and expects the method to return True, since the limits are correct.
    
-    def test_check_limitsrange1(self):
-        limits = [-12, 55]
-        result = sensors_main.check_limitsrange(limits)
-        self.assertTrue(result, True)
-
-    # The test case test_check_limitsrange2 that tests the check_limitsrange
-    # with incorrect lower limit (lower limit -15 and higher limit 55)
-    # expects the method to return False, since the  lower limit is
-    # incorrect.
-
-    def test_check_limitsrange2(self):
-        limits = [-15, 55]
-        result = sensors_main.check_limitsrange(limits)
+    def test_check_limits3(self):
+        limits = [-12, -12]
+        result = sensors_main.check_limits(limits)
         self.assertFalse(result, False)
 
-    # The test case test_check_limitsrange2 that tests the check_limitsrange
-    # with incorrect upper limit (lower limit -12 and higher limit 66)
-    # expects the method to return False, since the  upper limit is
-    # incorrect.
-    
-    def test_check_limitsrange3(self):
-        limits = [-12, 66]
-        result = sensors_main.check_limitsrange(limits)
-        self.assertFalse(result, False)
- #######################################
-    # Example of an integration test case #
-    #######################################
-
-    # The test case test_check_limits_integration1 that tests
-    # the check_limits from main.
-
-    # Redirect console output to sys.stdout in order to
-    # check it from the test cases (here, from the example
-    # integration test case). Notice the use of mock_print
-    # as a parameter of the test case function.
+   
     @patch('builtins.print')
     def test_check_limits_integration1(self, mock_print):
-        # set command line parameters, since they are where main gets the
-        # min and max temperature settings
-        sys.argv = [["sensors_main.py"], [22], [18]]
+       
+        sys.argv = [["sensors_main.py"], [55], [-12]]
 
-        # call main with the command line parameters set up
         sensors_main.main()
 
-        # check that the console output is the expected error message
+        
         mock_print.assert_called_with("Error: Incorrect command line arguments.")
-
-        # If you want to see what is in mock_print, you can use the following
-        # (requires that there is import sys as this module has because this
-        # test case sets the command line arguments that are in sys.argv)
-        #
-        # sys.stdout.write(str(mock_print.call_args) + "\n")
-        # sys.stdout.write(str(mock_print.call_args_list) + "\n")
 
 
 if __name__ == '__main__':

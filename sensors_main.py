@@ -1,5 +1,7 @@
 import sys
-# This is to check the commit section.
+
+# Comment for checking that commit works.
+
 # This is the main function for controlling the flow of the
 # implementation.
 def main():
@@ -7,20 +9,15 @@ def main():
     sensor_data = []
 
     if len(limits) > 0 and check_limits(limits):
-        if check_limitsrange(limits):
-            sensor_data = read_sensors()
-            # This is a mockup code that prints the sensor readings
-            # to console. To be replaced with actual implementation
-            # (whatever that might be according to the low level design,
-            # for example).
-            for row in sensor_data:
-                print (row)
-        else:
-            print("Error: Incorrect limit range.")
+        sensor_data = read_sensors()
+        # This is a mockup code that prints the sensor readings
+        # to console. To be replaced with actual implementation
+        # (whatever that might be according to the low level design,
+        # for example).
+        for row in sensor_data:
+            print (row)
     else:
         print("Error: Incorrect command line arguments.")
-
-    
 
 # This is the parse_limits function for getting the temperature
 # limits from the command line parameters. Returns an array
@@ -43,17 +40,6 @@ def parse_limits():
 # True. Otherwise, it returns False.
 def check_limits(limits):
     if limits[0] < limits[1]:
-        return True
-    else:
-        return False
-
-# This is the check_limitsrange function that gets an array containing the
-# limits as a parameter and checks that the lower limit and the higher limit
-# are within the range ( -12 >= limits <= 60 ). If this is the case, the function returns
-# True. Otherwise, it returns False.
-
-def check_limitsrange(limits):
-    if limits[0] >= -12 and limits[1] <= 60:
         return True
     else:
         return False
